@@ -1,0 +1,131 @@
+:root {
+    --gap: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    text-align: center;
+    font-family: arial;
+    font-size: 50px;
+    color: #033;
+}
+
+.start-form {
+    width: 300px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.start-form-deactive {
+    display: none;
+}
+
+.start-form__input {
+    width: 300px;
+    height: 40%;
+    padding: 0;
+    padding-left: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.start-form__input::placeholder {
+    font-size: 15px;
+    color: grey;
+}
+
+.start-form__input-ivalid::placeholder {
+    color: red;
+}
+
+.start-form__btn {
+    width: 300px;
+    height: 40%;
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #fff;
+    background-color: #FFA07A;
+}
+
+.field-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.field {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.card {
+    position: relative;
+    width: calc(100% / 8 - var(--gap));
+    min-height: 20vw;
+    margin-bottom: var(--gap);
+    overflow: hidden;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+.card-face,
+.card-shirt {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s linear;
+}
+
+.card-face {
+    transform: perspective(600px) rotateY(180deg);
+    font-size: 100px;
+}
+
+.card-shirt {
+    transform: perspective(600px) rotateY(0deg);
+    background-image: url(/img/card-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-active > .card-face{
+    transform: perspective(600px) rotateY(0deg);
+}
+.card-active > .card-shirt{
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.card:not(:nth-child(7n)) {
+    margin-right: var(--gap);
+
+}
+
+.reset-btn {
+    display: inline-block;
+    width: 300px;
+    height: 70px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    font-size: 25px;
+    color: #fff;
+}
